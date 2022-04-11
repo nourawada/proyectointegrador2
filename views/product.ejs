@@ -13,11 +13,11 @@
 			<p class="product-detail-description">
 				<a href="product-add">Editar</a>
 			</p>
-		</div>
+		</div><% for ( let i = 0 ; i < 1; i++) { %>
+
 		<div class="product-detail">
 			<div class="row">
-				<% for ( let i = 0 ; i < 1; i++) { %>
-
+				
 					<article class="col-12 col-lg-8 product-detail-info">
 						<h1 class="product-titulo">
 							<% productos[i].nombre %> 
@@ -31,10 +31,10 @@
 							<%= productos[i].descripcion %> 
 							</p>
 					</article>
-					<% } %>"	
+					
 					
 				<div class="col-12 col-lg-4">
-
+<% } %>"	
 					<section class="comments">
                         <% for (let i = 0;  i< comentarios.length; i++) { %>
                             <article>
