@@ -315,7 +315,10 @@ hr {
   padding: 15px;
   /* height: 100%; */
 }
-
+.product-titulo{
+  text-transform: capitalize;
+  font-size: large;
+}
 .product-detail-title {
   font-weight: 400;
   font-size: 2.8em;
@@ -325,6 +328,7 @@ hr {
   padding: 15px 15px 15px 40px;
   font-size: 1.8em;
   line-height: 1.5;
+  text-transform:capitalize;
 }
 
 .product-detail-price {
