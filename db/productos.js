@@ -2,25 +2,25 @@
     { 
         nombre:"placa de video geforce asus gtx 1650 4gb gddr6 phoenix oc" ,
         imagen: "/images/products/placa-geforce-gtx-1650-gddr6.jpg",
-        descripcion: "está dedicada al procesamiento de datos relacionados con el vídeo y las imágenes que se están reproduciendo en el ordenador.",
+        descripcion: "Está dedicada al procesamiento de datos relacionados con el vídeo y las imágenes que se están reproduciendo en el ordenador.",
         fechaDeCarga: 2022,  
     }, 
-   /* { 
+   { 
         nombre:"Gabinete Kolink Void ARGB ATX Vidrio Templado" ,
         imagen: "/images/products/gabineteNegro.jpg" ,
-        descripcion: "armazón que contiene los componentes que integran una computadora (tarjeta madre, procesador, memoria RAM, dispositivos periféricos, etc.).",
+        descripcion: "Armazón que contiene los componentes que integran una computadora (tarjeta madre, procesador, memoria RAM, dispositivos periféricos, etc.).",
         fechaDeCarga: 2021,  
     },
     { 
         nombre: "Teclado Mecanico ASUS TUF Gaming K3 US Red" ,
         imagen: "/images/products/teclagoAsus.jpg",
-        descripcion: "un dispositivo de entrada que utiliza un sistema de puntadas o márgenes, para que actúen como palancas mecánicas o interruptores electrónicos que envían toda la información a la computadora.",
+        descripcion: "Un dispositivo de entrada que utiliza un sistema de puntadas o márgenes, para que actúen como palancas mecánicas o interruptores electrónicos que envían toda la información a la computadora.",
         fechaDeCarga: 2018,  
     },
     { 
         nombre: "Procesador AMD Ryzen 5 1600 AF Zen+ 12nm AM4 Wraith Stealth Cooler",
         imagen: "/images/products/procesadorAmd.jpg",
-        descripcion: "es la unidad de procesamiento encargada de interpretar las instrucciones de un hardware haciendo uso de distintas operaciones aritméticas y matemáticas.",
+        descripcion: "Es la unidad de procesamiento encargada de interpretar las instrucciones de un hardware haciendo uso de distintas operaciones aritméticas y matemáticas.",
         fechaDeCarga: 2018,  
     },
     { 
@@ -31,26 +31,26 @@
     },
     { 
         nombre: "Memoria GeiL DDR4 16GB (2x8GB) 3200MHz EVO X II RGB Black " ,
-        imagen: "/images/products/memoraRam.jpg",
-        descripcion: "una nueva serie de memorias RAM DDR4 que pretende ser una opción mas para los jugadores de PC, que necesitan unos kits con la mayor velocidad posible, y así sacar el mayor rendimiento del PC.",
+        imagen: "/images/products/memoriaRam.jpg",
+        descripcion: "Una nueva serie de memorias RAM DDR4 que pretende ser una opción mas para los jugadores de PC, que necesitan unos kits con la mayor velocidad posible, y así sacar el mayor rendimiento del PC.",
         fechaDeCarga: 2022,  
     },
     { 
         nombre: "Auriculares HP HyperX Cloud II Pro Gun Metal PC",
         imagen: "/images/products/aurisGamers.jpg",
-        descripcion:"tu auricular gaming será un transductor de algo más que de música. Sonidos graves, agudos sin distorsión (drivers), sensibilidad del altavoz y frecuencia disponible, hacen que la calidad del sonido sea buena" ,
+        descripcion:"Tu auricular gaming será un transductor de algo más que de música. Sonidos graves, agudos sin distorsión (drivers), sensibilidad del altavoz y frecuencia disponible, hacen que la calidad del sonido sea buena" ,
         fechaDeCarga: 2020,  
     },
     { 
         nombre: "Monitor Samsung 24 Curvo F390" ,
         imagen: "/images/products/monitorGamer.jpg",
-        descripcion: "esta diseñado para las necesidades muy específicas de los videojuegos. Tiene paneles con alta velocidad de respuesta y frecuencias de actualización. Mantienen el input lag al mínimo y no agregan ninguna molestia a tu imagen.",
+        descripcion: "Esta diseñado para las necesidades muy específicas de los videojuegos. Tiene paneles con alta velocidad de respuesta y frecuencias de actualización. Mantienen el input lag al mínimo y no agregan ninguna molestia a tu imagen.",
         fechaDeCarga: 2021,  
     },
     { 
         nombre: "Mouse Redragon M710 Memeanlion Chroma RGB 10,000dpi ",
         imagen: "/images/products/mouseGamer.jpg",
-        descripcion: "estos mouses son visualmente mucho más atractivos, ideales para complementarlos con los notebooks gamers. Suelen tener más luces que los tradicionales, especialmente en los laterales. Además, cuentan con muchas más funciones y botones.",
+        descripcion: "Estos mouses son visualmente mucho más atractivos, ideales para complementarlos con los notebooks gamers. Suelen tener más luces que los tradicionales, especialmente en los laterales. Además, cuentan con muchas más funciones y botones.",
         fechaDeCarga: 2022,  
     },
     { 
@@ -58,7 +58,7 @@
         imagen: "images/products/discoSolido.jpg",
         descripcion: "El disco solido es una nueva generación de dispositivos de almacenamiento que se emplea en equipos. Estos reemplazan los discos duros mecánicos tradicionales con una memoria basada en flash, significativamente más rápida.",
         fechaDeCarga: 2019,  
-    },*/ 
+    },
     ]
 
     module.exports = productos

@@ -29,7 +29,8 @@ body {
 body {
   font-family: var(--base-font-family);
   font-weight: 300;
-  background-color: var(--light-gray);
+  background-color: black;
+  color:#ccc;
 }
 
 ul,
@@ -68,7 +69,8 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--light-blue);
+  background-color:black;
+  color: #ccc;
 }
 
 .main-header_home-link,
@@ -154,9 +156,9 @@ hr {
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/images/img-home-banner.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-image: url(../images/razer5.jpeg);
+  background-size: 100%;
   background-position: center center;
   height: 100px;
 }
