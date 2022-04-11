@@ -9,7 +9,7 @@ productadd: function(req, res){
      res.render('product-add',{productos: productos, comentarios: comentarios})
 }, 
      productId: function(req,res){
-    res.render ('product/:id?',{productos:productos, productId: req.params.id})
+    res.render ('product',{productos:productos, productId: req.params.id, comentarios: comentarios})
 }
 }
 

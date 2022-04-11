@@ -8,7 +8,7 @@ router.get('/', productController.index);
 
 router.get('/product-add', productController.productadd)
 
-//router.get('/:id?', productController.productId)
+router.get('/:id', productController.productId)
 
 module.exports = router
 

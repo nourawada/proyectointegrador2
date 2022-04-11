@@ -9,32 +9,30 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title">Nombre del producto</h2> 
+			<h2 class="products-title">
+				<%= productos[productId-1].nombre %>
+			</h2> 
 			<p class="product-detail-description">
 				<a href="product-add">Editar</a>
 			</p>
-		</div><% for ( let i = 0 ; i < 1; i++) { %>
+		</div>
 
 		<div class="product-detail">
 			<div class="row">
 				
 					<article class="col-12 col-lg-8 product-detail-info">
-						<h1 class="product-titulo">
-							<% productos[i].nombre %> 
-						</h1>
+							 
+
 						<img src="
-							<%= productos[i].imagen %>"
+							<%= productos[productId-1].imagen %>"
 						
 							 alt="" class="product-detail-img">	
 						 
 						<p class="product-detail-description">
-							<%= productos[i].descripcion %> 
+							<%= productos[productId-1].descripcion %> 
 							</p>
 					</article>
-					
-					
-				<div class="col-12 col-lg-4">
-<% } %>"	
+				<div class="col-12 col-lg-4">	
 					<section class="comments">
                         <% for (let i = 0;  i< comentarios.length; i++) { %>
                             <article>

@@ -1,10 +1,11 @@
  var productos =  [
     { 
+        id: 1, 
         nombre:"Placa de video geforce asus gtx 1650 4gb gddr6 phoenix oc" ,
         imagen: "/images/products/placa-geforce-gtx-1650-gddr6.jpg",
         descripcion: "Está dedicada al procesamiento de datos relacionados con el vídeo y las imágenes que se están reproduciendo en el ordenador.",
         fechaDeCarga: 2022,
-        id: 1 
+        
     }, 
    { 
         nombre:"Gabinete Kolink Void ARGB ATX Vidrio Templado" ,
