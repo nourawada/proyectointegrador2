@@ -15,7 +15,7 @@ var comentarios = [
     imagen:"/images/users/dwight1.jpeg",
     },
     {
-    nombre:"Micheal Scott",
+    nombre:"Michael Scott",
     comentario:"Buen producto, acorde al precio y funciona correctamente",
     imagen:"/images/users/michael.jpeg",
     },
