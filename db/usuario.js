@@ -7,7 +7,7 @@ let usuario = {
       usuarioDireccion: "Monroe 228",
       usuarioNacimiento: "09-12-1998",
       usuarioDocumento: "42822428",
-      usuarioImagen: "/images/users/FacuMarz.jpg"
+      usuarioImagen: "/images/users/robert.jpeg.crdownload"
  }
 
  module.exports = usuario; 
