@@ -15,10 +15,23 @@
 				<h2 class="products-title">Resultados de búsqueda</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá van los resultados de búsqueda. <br>
-			Eliminen estás líneas y cosntruyan la página de resultados de búsqueda. <br>
-			////////////////
-			</h2>
+			<% for ( let i=0 ; i < 4; i++) { %>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						
+						<a href="/product/<%= productos[i].nombre %> ">
+							<figure class="product-box_image">
+								<img src=<%= productos[i].imagen %> alt="">
+							</figure>
+							<article class="product-box_data">
+								<h2> <%= productos[i].nombre %> </h2>
+								<p> <%= productos[i].descripcion%> </p>
+								<p>Comentarios: 12</p>
+							</article>
+						</a>
+					</section>
+				</div>
+				<% } %>
 
 
 	<!-- footer -->
