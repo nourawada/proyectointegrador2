@@ -1,4 +1,5 @@
 const usuario = require('../db/usuario')
+const productos = require('../db/productos')
 
 const usuarioController = {
     register: function (req, res) {
