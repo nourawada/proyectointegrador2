@@ -65,21 +65,21 @@
     },
     { 
         nombre: "Disco Solido SSD Externo Team Treasure Touch RGB 1TB 400MB/s ",
-        imagen: "images/products/discoSolido.jpg",
+        imagen: "/images/products/discoSolido.jpg",
         descripcion: "El disco solido es una nueva generación de dispositivos de almacenamiento que se emplea en equipos. Estos reemplazan los discos duros mecánicos tradicionales con una memoria basada en flash, significativamente más rápida.",
         fechaDeCarga: 2019,  
         id:10
     },
     { 
         nombre: "Mother Asrock B365 Phantom Gaming 4 9th Gen 1151 M.2 RGB ",
-        imagen: "images/products/motherIntel.jpg",
+        imagen: "/images/products/motherIntel.jpg",
         descripcion: "La placa mother es una tarjeta de circuito impreso a la que se conectan los componentes que constituyen la computadora..",
         fechaDeCarga: 2022,  
         id:11
     },
     { 
         nombre: "Cooler CPU ID-Cooling FROSTFLOW X 240 CPU Intel 1151 & AMD AM4",
-        imagen: "images/products/coolerIntel.jpg",
+        imagen: "/images/products/coolerIntel.jpg",
         descripcion: "Un cooler, es un ventilador capaz de enfriar y mantener la temperatura, ni más ni menos. Estos cooler tienden a utilizar para todo tipo de aspectos de la vida, y no sólo están presentes en el mundo de la informática.",
         fechaDeCarga: 2021,  
         id:12
