@@ -334,6 +334,7 @@ hr {
   font-size: 1.8em;
   line-height: 1.5;
   text-transform:capitalize;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .product-detail-price {
@@ -430,6 +431,7 @@ hr {
 }
 .comments .user{
   font-size: 1.7em;
+  font-family:'Times New Roman', Times, serif;
 }
 
 /*====== Formularios ======*/
@@ -538,5 +540,9 @@ textarea.form-input {
   }
   .claselogout{
     color: #ccc;
+  }
+  .nombres{
+    color: black;
+    font-size: 1.8em;
   }
 }
