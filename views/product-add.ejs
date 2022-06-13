@@ -13,13 +13,15 @@
 			<div class="col-12">
 				<h2 class="products-title">Agregar productos</h2>
 			</div>
-			<form action="/" method="GET" class="form-add">
+			<form action="/store" method="POST" class="form-add">
 
-				<input type="text" name="nombre" placeholder="Nombre" class="form-input">
+			<div><input type="text" name="name" value="" placeholder="Nombre" class="form-input"></div>
 
-				<input type="text" name="descripcion" placeholder="Descripcion" class="form-input">
+			<div><input type="file" name="image"value="" placeholder="Foto del producto" class="form-input"></div>
 
-				<input type="file" name="imagen" placeholder="Foto de perfil" class="form-input">
+			<div><input type="text" name="brand" value="" placeholder="Marca" class="form-input"></div>
+
+			<div><input type="text" name="descripcion" value="" placeholder="Descripcion" class="form-input"></div>
 
 				<button type="submit">Agregar</button>
 			</form>
