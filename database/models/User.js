@@ -1,7 +1,7 @@
 module.exports = function (Sequelize,DataTypes){ //el modelo exporta una funcion
     
     //definir un alias que va a ser el nombre con el que vamos a llamar al modelo cuando estemos en el controlador
-    let alias = 'Product';
+    let alias = 'User';
 
     //columnas y sus propiedades
     let cols = {
@@ -11,25 +11,29 @@ module.exports = function (Sequelize,DataTypes){ //el modelo exporta una funcion
             autoIncrement: true,
             type: DataTypes.INTEGER.UNSIGNED,
         },
-        name:{
+        email:{
             notNull: true,
             type: DataTypes.STRING, 
+        },
+        username:{
+            notNull: true,
+            type: DataTypes.STRING,
+        },
+        password:{
+            notNull: true,
+            type: DataTypes.STRING,
+        },
+        nacimiento:{
+            notnull: true,
+            type: DataTypes.DATE,
+        },
+        dni:{
+            notnull: true,
+            type: DataTypes.INTEGER,
         },
         image:{
             notNull: true,
             type: DataTypes.STRING,
-        },
-        brand:{
-            notNull: true,
-            type: DataTypes.STRING,
-        },
-        descripcion:{
-            notnull: true,
-            type: DataTypes.STRING,
-        },
-        users_id:{
-            notnull: true,
-            type: DataTypes.INTEGER.UNSIGNED,
         },
         createdAt:{
             notNull: true,
@@ -44,26 +48,26 @@ module.exports = function (Sequelize,DataTypes){ //el modelo exporta una funcion
     }
     //CONFIGURACIONES ADICIONALES
     let config = { //puede no estar, cuando el nombre de la tabla es el nombre del modelo en plural
-        tableName: "products",
+        tableName: "users",
         timestamps: true, //le dice al modelo si la tabla estan las columnas updatedAt y createdAt
         underscored: false, //si la tabla tiene columnas con nombres usando _.
     }
-    const Product = Sequelize.define(alias, cols, config);
-
-    //Relaciones entre tablas
-    Product.associate = function(models){
-        Product.belongsTo(models.User,
+    const User = Sequelize.define(alias, cols, config);
+    
+    //Relaciones entre tablas 
+    User.associate = function(models){
+        User.hasMany(models.Product,
         {
-            as:'user',
+            as:'product',
             foreignKey:'users_id'
         })
     }
-    Product.associate = function(models){
-        Product.hasMany(models.Comment, {
+    User.associate = function(models){
+        User.hasMany(models.Comment, {
             as: 'comment',
-            foreignKey: 'product_id'
+            foreignKey: 'users_id'
         });
     }
 
-    return Product;
+    return User;
 }
