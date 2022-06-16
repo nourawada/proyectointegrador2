@@ -1,6 +1,3 @@
-//const productos = require('../db/productos')
-//const comentarios = require('../db/comentarios')
-//const usuario = require('../db/usuario')
 const res = require('express/lib/response');
 const db = require('../database/models');
 const products = db.Product;
@@ -36,10 +33,11 @@ productstore: function(req, res){
      //Obtener los datos del formulario y armar el objeto literal que quiero guardar
      let product = {
          name: req.body.name,
-         image: req.body.image,
+         image: req.file.filename,
          brand: req.body.brand,
          descripcion: req.body.descripcion,
      }
+     
      //Guardar la info en la base de datos
      products.create(product)
          .then( function(respuesta){ //En el parámetro recibimos el registro que se acaba de crear en la base de datos.

@@ -51,12 +51,12 @@ module.exports = function (Sequelize,DataTypes){ //el modelo exporta una funcion
     const Products = Sequelize.define(alias, cols, config);
 
     //Relaciones entre tablas
-    //Products.associate = function(models){
-      //  Products.belongsTo(models.Comment, {
-        //    as: "comment",
-         //   foreignKey: "comment_id"
-       // });
-   // }
+    Products.associate = function(models){
+        Products.hasMany(models.Comment, {
+            as: "comment",
+            foreignKey: "products_id"
+        });
+    }
 
     return Products;
 }
