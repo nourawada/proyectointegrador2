@@ -8,6 +8,8 @@ id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 email VARCHAR(250) UNIQUE NOT NULL,
 username VARCHAR(250) NOT NULL,
 password VARCHAR(250) NOT NULL,
+nacimiento DATE NOT NULL,
+dni VARCHAR(8) NOT NULL,
 image VARCHAR(250) NOT NULL,
 createdAt DATE NOT NULL,
 updatedAt DATE
@@ -47,10 +49,9 @@ FOREIGN KEY(users_id) REFERENCES users(id),
 FOREIGN KEY(followers_id) REFERENCES users(id)
 );
 
-INSERT INTO users (email, username, password, image, createdAt, updatedAt)
-VALUES ('nawada@udesa.edu.ar','nourawada','nour123','/images/users/homero.jpeg',curdate(), curdate()),
-('facundomartinezz@udesa.edu.ar','facumartinez', 'facu2022', '/images/users/morty1.jpeg',curdate(), curdate()),
-('tomyfalaq@udesa.edu.ar','tomyfalaq', 'riverelmejor', '/images/users/dwight1.jpeg', curdate(), curdate());
+INSERT INTO users (email, username, password, nacimiento, dni, image, createdAt, updatedAt)
+VALUES ('nawada@udesa.edu.ar','nourawada','nour123', '2002-03-25', '43992391', '/images/users/homero.jpeg',curdate(), curdate()),
+('facundomartinezz@udesa.edu.ar','facumartinez', 'facu2022', '2003-01-13', '42400567', '/images/users/morty1.jpeg',curdate(), curdate());
 
 INSERT INTO products (name, image, brand, descripcion ,createdAt, updatedAt, users_id)
 VALUES ('Placa de video', '/images/products/1.jpeg' , 'MSI', 'Está dedicada al procesamiento de datos relacionados con el vídeo y las imágenes que se están reproduciendo en el ordenador', curdate(), curdate(),1),
