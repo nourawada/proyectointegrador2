@@ -4,7 +4,7 @@
 <%- include('./partials/head')  %> 
 <body>
 	<!-- Header -->
-<%- include('./partials/headerLogueado.ejs',{usuario: usuario.usuarioNombre})  %> 
+<%- include('./partials/header.ejs')  %> 
 	<!-- /Header -->
 
 	<!-- Novedades -->
@@ -13,7 +13,7 @@
 			<div class="col-12">
 				<h2 class="products-title">Agregar productos</h2>
 			</div>
-			<form action="/store" method="POST" enctype="multipart/form-data" class="form-add">
+			<form action="/store" enctype="multipart/form-data" method="POST" action="/product/product-store" class="form-add">
 
 			<div><input type="text" name="name" value="" placeholder="Nombre" class="form-input"></div>
 
@@ -22,10 +22,10 @@
 			<div><input type="text" name="brand" value="" placeholder="Marca" class="form-input"></div>
 
 			<div><input type="text" name="descripcion" value="" placeholder="Descripcion" class="form-input"></div>
-
+			<div><input type="hidden" name="descripcion" value="<%= locals.user.id %>" placeholder="Descripcion" class="form-input">
 				<button type="submit">Agregar</button>
 			</form>
-
+		</div>
 
 	<!-- footer -->
 <%- include('./partials/footer')  %> 

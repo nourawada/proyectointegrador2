@@ -33,6 +33,11 @@ module.exports = function(sequelize, dataTypes){
     }
 
     const Comments = sequelize.define (alias, cols, config);
-
+    Comments.associate = function(models){
+  Comments.belongsTo(models.Product, {
+            as: 'comment',
+            foreignKey: 'products_id'
+        });
+    }
     return Comments;
 }

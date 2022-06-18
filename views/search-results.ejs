@@ -11,28 +11,32 @@
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
+			<% if (products.length !=0) { %>
 			<div class="col-12">
-				<h2 class="products-title">Resultados de búsqueda</h2>
+				<h2 class="products-title">Resultados de búsqueda de: "<i><%= query %></i>"</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
-			<% for ( let i=0 ; i < 4; i++) { %>
+			<% for ( let i=0 ; i < products.length; i++) { %>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
 						
-						<a href="/product/<%= productos[i].id  %>  ">
+						<a href="/product/<%= products[i].id  %>  ">
 							<figure class="product-box_image">
-								<img src=<%= productos[i].imagen %> alt="">
+								<img src="<%= products[i].image %>" alt="<%= products[i].name %>">
 							</figure>
 							<article class="product-box_data">
-								<h2> <%= productos[i].nombre %> </h2>
-								<p> <%= productos[i].descripcion%> </p>
-								<p>Comentarios: 12</p>
+								<h2> <%= products[i].name %> </h2>
+								<p><%= `Marca: ${products[i].brand}` %> </p>
+								<p><%= `${products[i].descripcion}` %></p>
+									
 							</article>
 						</a>
 					</section>
 				</div>
 				<% } %>
-
+				<% } else { %> 
+					<h2>No se encontraron resultados para: "<i><%= query %></i>"</h2>
+				<% } %> 
 
 	<!-- footer -->
 <%- include('./partials/footer')  %> 

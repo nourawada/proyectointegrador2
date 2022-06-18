@@ -57,11 +57,11 @@ module.exports = function (Sequelize,DataTypes){ //el modelo exporta una funcion
             as:'user',
             foreignKey:'users_id'
         })
-    }
-    Product.associate = function(models){
+    
+    
         Product.hasMany(models.Comment, {
             as: 'comment',
-            foreignKey: 'product_id'
+            foreignKey: 'products_id'
         });
     }
 

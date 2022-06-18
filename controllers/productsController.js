@@ -1,7 +1,7 @@
-const res = require('express/lib/response');
+
 const db = require('../database/models');
 const products = db.Product;
-const users = db.Users
+const users = db.User;
 const op = db.Sequelize.Op;
 const comment = db.Comment;
 
@@ -29,7 +29,7 @@ productadd: function(req, res){
  }, 
    
 
-productstore: function(req, res){
+productStore: function(req, res){
      //Obtener los datos del formulario y armar el objeto literal que quiero guardar
      let product = {
          name: req.body.name,
