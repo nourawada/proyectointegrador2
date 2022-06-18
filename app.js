@@ -6,7 +6,10 @@ var logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-const productRouter = require('./routes/product')
+const productRouter = require('./routes/product');
+const session = require('express-session');
+const db = require('./database/models');
+const users = db.User
 
 var app = express();
 
@@ -19,6 +22,37 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret:'proyectoIntegrador',
+  resave: false,
+  saveUninitialized: true,
+}));
+
+app.use(function(req, res, next){
+  if(req.session.user != undefined){
+    res.locals.user = req.session.user
+  }
+
+  return next();
+})
+
+app.use(function(req, res, next){
+  if(req.cookies.userId != undefined && req.session.user == undefined ){
+    let userId = req.cookies.userId;
+    //Tengo que ir a la db y preguntar
+    users.findByPk(userId)
+      .then(function(user){
+          req.session.user = user.dataValues
+          res.locals.user = user.dataValues
+          return next();
+      })
+      .catch(error => console.log(error))
+  } else {
+    return next();
+  }
+    
+})
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
