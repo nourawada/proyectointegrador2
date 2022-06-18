@@ -20,7 +20,7 @@ var upload = multer({ storage: storage })
 
 router.get('/register', usersController.register);
 
-router.post('/show', upload.single('images'), usersController.show)
+router.post('/show', upload.single('images'), usersController.procesarRegister)
 
 router.get('/login', usersController.login);
 
@@ -28,6 +28,6 @@ router.post('/login', usersController.signIn )
 
 //router.get('/profile', usersController.profile);
 
-router.get('/profile-edit', usersController.profileEdit);
+//router.get('/profile-edit', usersController.profileEdit);
 
 module.exports = router;

@@ -9,15 +9,9 @@ const bcrypt = require('bcryptjs')
 
 const usersController = {
     register: function(req, res){
-        if(req.session.user != undefined){
-            return res.redirect('/')
-        } else {
             return res.render('register');
-            
-        }
-        
     },
-    show: function(req,res){
+    procesarRegister: function(req,res){
         let errores = {}
         
           if(req.body.username == ""){
@@ -29,7 +23,7 @@ const usersController = {
             res.locals.errores = errores;
             return res.render('register');
           } else if(req.file == undefined){
-            errores.message = "El email es obligatorio";
+            errores.message = "El archivo es obligatorio";
             res.locals.errores = errores;
             return res.render('register');
           }else{

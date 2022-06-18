@@ -11,6 +11,9 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
+				<% if(locals.errores){%>
+					<p style="color:red"> <%= errores.message %> </p>
+				<% } %>
 				<h2 class="products-title">Registrate</h2>
 			</div>
 			<form action="/users/show" method="POST" class="form-edit">
