@@ -3,7 +3,8 @@ const products = db.Product;
 const users = db.User;
 const op = db.Sequelize.Op;
 const comment = db.Comment;
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
+
 
 
 
@@ -11,7 +12,7 @@ const usersController = {
     register: function(req, res){
             return res.render('register');
     },
-    procesarRegister: function(req,res){
+    show: function(req,res){
         let errores = {}
         
           if(req.body.username == ""){
@@ -38,7 +39,7 @@ const usersController = {
               }else{
                   let user = {
                       email: req.body.email,
-                      name: req.body.username,
+                      username: req.body.username,
                       password: bcrypt.hashSync(req.body.password, 10),
                       nacimiento: req.body.nacimiento,
                       dni: req.body.dni,
@@ -57,29 +58,45 @@ const usersController = {
           
       },
       login: function (req, res) {
-        if(req.session.user != undefined){
-            return res.redirect('/')
-        } else {  
             return res.render('login');
-        }
-    },
+        },
+        
     signIn: function(req,res){ 
+    
+        let errores = {}
+        
         users.findOne({
             where: [{email: req.body.email}]
 
         })
-        .then(function(users){
-            console.log(req.body);
-            if(users){
-            req.session.users = users.dataValues;
-            res.cookie('userId', users.dataValues.id,{maxAge: 1000*60*100})
+        .then(function(user){
+            if(user){
+            let compare = bcrypt.compareSync(req.body.password, user.password);
+            if(compare){
+            req.session.user = user.dataValues;
+            if(req.body.remember){
+                res.cookie('userId',user.dataValues.id,{maxAge: 1000*60*100} );
             }
-            console.log(req.session.user);
             return res.redirect('/')
+
+            }else{
+                errores.message = "incorrect password";
+                res.locals.errores = errores
+                return res.render('login')
+
+            }
+
+            }else{
+                errores.message= "this email doesn't exists"
+                res.locals.errores = errores
+                return res.render('login');
+            }
+
         })
         .catch(error => console.log(error))
-
+    
     },
+
 
     profile: function (req, res) {
         res.render('profile', {usuario: usuario, productos: productos} );

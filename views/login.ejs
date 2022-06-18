@@ -11,18 +11,25 @@
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
+			<% if (locals.errores) {%> 
+				<%= errores.message  %>  <!-- agregarle una clase para css -->
+			<% } %> 
 			<div class="col-12">
 				<h2 class="products-title">Ingresar</h2>
 			</div>
 
-			<form action="/" method="GET" class="form-edit">
+			<form action="/users/login" method="POST" class="form-edit">
 
 				
-				<input type="text" name="usuarioUsername" placeholder="Nombre de Usuario" class="form-input">
+				<input type="email" name="email" placeholder="Email" class="form-input">
 
-				<input type="password" name="usuarioContrasena" placeholder="Contraseña" class="form-input">
+				<input type="password" name="password" placeholder="password" class="form-input">
 
 				<button type="submit">Ingresar a tu cuenta</button>
+
+				<input class="checkbox" type="checkbox" id="check-recordarme" name="recordarme"/> 
+
+				<label class="recordar" for="check-recordarme"> Recordarme </label>
 			</form>
 
 	<!-- footer -->

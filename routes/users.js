@@ -20,7 +20,7 @@ var upload = multer({ storage: storage })
 
 router.get('/register', usersController.register);
 
-router.post('/show', upload.single('images'), usersController.procesarRegister)
+router.post('/show', upload.single('image'), usersController.show)
 
 router.get('/login', usersController.login);
 
