@@ -33,15 +33,15 @@
         </ul>
   
         <ul class="right-navbar">
-        <li><a href="/users/profile">
-              <%= usuario %>
+        <li><a href="/profile<%= usuario.id %>">
+              <%= usuario.username %>
               <i class="fas fa-user"></i>
             </a>
           </li>
           <li>
-              <button class="logout" type="submit">
-              <a class="claselogout" href="/users/login">Cerrar Sesion<i class="fas fa-sign-in-alt"></i></a>
-              </button>
+            <form action="/profile/login" method="post">
+							<button class="logout" type="submit">
+								Cerrar sesión <i class="fas fa-sign-in-alt">
             </form>
           </li>
         </ul>
