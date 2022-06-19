@@ -96,6 +96,18 @@ const usersController = {
         .catch(error => console.log(error))
     
     },
+    logout: function(req, res){
+        //destruir session
+        req.session.destroy();
+
+        //Eliminar cookie si existe.
+        if(req.cookies.userId !== undefined){
+            res.clearCookie('userId')
+        }
+
+        return res.redirect('/');
+
+    },
 
 
     profile: function (req, res) {

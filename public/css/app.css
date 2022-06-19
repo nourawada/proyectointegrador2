@@ -113,6 +113,9 @@ hr {
   color: var(--gray);
   cursor: pointer;
 }
+.logout{
+  color: #ccc;
+}
 
 
 /*====== Main Navbar ======*/

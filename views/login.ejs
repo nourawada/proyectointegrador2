@@ -5,7 +5,11 @@
 
 <body>
 	<!-- Header -->
-<%- include('./partials/header')  %> 
+	<% if (locals.user) { %> 
+		<%- include('partials/headerLogueado') %>
+	<% } else { %>
+		<%- include('partials/header') %>
+	<% } %>  
 	<!-- /Header -->
 
 	<!-- Novedades -->
@@ -26,10 +30,6 @@
 				<input type="password" name="password" placeholder="password" class="form-input">
 
 				<button type="submit">Ingresar a tu cuenta</button>
-
-				<input class="checkbox" type="checkbox" id="check-recordarme" name="recordarme"/> 
-
-				<label class="recordar" for="check-recordarme"> Recordarme </label>
 			</form>
 
 	<!-- footer -->
