@@ -8,7 +8,7 @@ const path = require('path');
 /*Configurar Multer */
 const storage = multer.diskStorage({
     destination: function ( req, file, cb) {
-        cb(null, path.join(__dirname, 'public/images/users')) //Usamos path.join para evitar problemas de rutas. __dirname da la posicion exacta de la carpeta en la que esta el archivo. Luego desde ahi nosmovemos hasta la carpeta public.
+        cb(null, path.join(__dirname, '../public/images/users')) //Usamos path.join para evitar problemas de rutas. __dirname da la posicion exacta de la carpeta en la que esta el archivo. Luego desde ahi nosmovemos hasta la carpeta public.
     },
 
     filename: function (req, file, cb) {

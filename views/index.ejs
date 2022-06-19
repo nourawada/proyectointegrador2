@@ -2,7 +2,11 @@
 <html>
   <%- include('./partials/head')  %> 
     <!-- /Header -->
-  <%- include('./partials/header')  %> 
+    <% if (locals.user) { %> 
+      <%- include('partials/headerLogueado') %>
+    <% } else { %>
+      <%- include('partials/header') %>
+    <% } %>  
     <!-- Banner -->
     <div class="banner">
     </div>
