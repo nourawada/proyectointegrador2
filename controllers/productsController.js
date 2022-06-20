@@ -6,10 +6,27 @@ const comment = db.Comment;
 
 
 const productController = {
+
      productId:
      function(req, res){
-          products.findByPk(req.params.id)
-          .then(products =>{res.render('product',{products: products, comment: comment})})
+         let id = req.params.id
+         products.findOne({
+            include: [{ association: "user" }],
+            where: [{id: id}]
+         })
+         .then(function(products){
+            comment.findAll({
+                include: [{association: "userComment"}, { association: "productComment"}],
+            where:[{ products_id: products.id}],
+            order: [[['id', 'DESC']]]
+
+            })
+            .then(function(comment){
+                console.log(comment);
+                return res.render('product', {products: products, comment: comment})
+            })
+         })
+         .catch(error => console.log(error))
      },
 
 
@@ -37,6 +54,7 @@ store: function(req, res){
          descripcion: req.body.descripcion,
          users_id: req.body.users_id
      }  
+
      
      //Guardar la info en la base de datos
      products.create(product)
@@ -48,23 +66,61 @@ store: function(req, res){
          .catch( error => console.log(error))
 
  },
-    
+
+delete: function(req, res){
+    if (req.session.user == undefined) {
+        return res.redirect('/')
+     } else {
+        products.findByPk(req.params.id)
+        .then(function(product){
+        if(product.users_id == req.session.user.id){
+         products.destroy({ 
+         where: {id : req.params.id }})
+
+        .then (function(destroy){
+
+        comment.destroy({
+         where: {products_id : req.params.id}
+ })
+        .then(function(borrar){
+         return res.redirect ('/')
+})
+        .catch(error => console.log(error))
+})
+        } else {
+        return res.redirect('/')
+}
+})
+}
+},
+
 
  show: function (req, res){
-    let comment = {
-        text: req.body.text,
-        users_id: req.body.users_id,
-        products_id: req.body.products_id
-       
+    if(req.session.user == undefined){
+        return res.redirect('/users/login')
+    } else { 
+    let comments = {
+       text: req.body.text,
+       products_id: req.body.products_id,
+       users_id: req.body.users_id,        
     }
-    console.log(req.body);
-    comments.create(comment)
+
+
+
+    comment.create(comments)
     .then (function(respuesta){
-        return res.redirect ('/')
+        products.findByPk(req.params.id)
+        .then(function(product){
+        
+        return res.redirect (`/product/${product.id}`)
     })
+ .catch(error => console.log(error))
+})
+ 
 }
+},
+
 
 
 }
-
 module.exports = productController
