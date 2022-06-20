@@ -38,23 +38,40 @@
 					</article>
 				<div class="col-12 col-lg-4">	
 					/<section class="comments">
-                        <% for (let i = 0;  i < comment.length; i++) { %>
+                        
                             <article>
-                                <img src="<%= comment.imagen %> " alt="">
+                                <img src="<%= products.user.image %> " alt="foto de perfil de <%= products.user.username %>">
                                 <div class="data">
                                     <p class="user">
-                                    <strong> <a href="/users/profile"> <%= comment.nombre%> </a> </strong>
-                                    <%= comment.comentario %> 
+                                    <strong> <a href="/profile/<%= products.user.id %>"> <%= products.user.username %> </a> </strong>
                                     </p>
                                 </div>
                             </article>
-
-                            <% }  %> 
+							<% if(comment[0]!= undefined) {%>
+								<p id="titulo-comments"><strong>Comentarios:</strong></p>
+							<% for(let i =0; i< comment.length; i++) { %>
+								<article>
+									<a href="/profile/<%= comment[i].id %>">	<img src="/images/users/<%= comment[i].image %>  " alt=""> </a>
+									<div class="data">
+										<p class="user">
+										<strong> <a href="/profile/<%=products.comment[i].users_id%> "> <%= comment[i].username %>  </a> </strong>
+										<%= products.comment[i].text %>
+										</p>	
+									</article>
+										<% } %>	
+            			                <% } else { %> 
+											<p><strong>Se el primero en dejar un comentario!</strong></p>
+										
+						
+							 <% }  %>
 						</section>
-					<form class="form" action="" method="get">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-						<a href="/users/register" type="submit" class="buy-now-button">AGREGAR COMENTARIO</a>
-					</form>	
+						<form class="form" action="storeComment" method="POST">
+							<input class="form-input" name="text" type="text" placeholder="Agregar comentario">
+							<input type="hidden" name="rating" id="estrellas-rating-input">
+							
+							<input name="FkPhoneId" class = "border form-control" type="hidden" id="formGroupExampleInput" value="<%= id %>">
+							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+						</form>
 
 
 
