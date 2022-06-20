@@ -3,7 +3,7 @@ const db = require('../database/models');
 const products = db.Product;
 const users = db.User;
 const op = db.Sequelize.Op;
-const comment = db.Comment;
+const comments = db.Comment;
 
 
 const productController = {
@@ -83,38 +83,21 @@ productStore: function(req, res){
          .catch( error => console.log(error))
  },
 
- commentStore: function (req, res){
-    console.log(req.body);
-    if(req.body.text==""){
-        res.redirect('/product/' + req.body.products_id);
-    }
-    else{
+ show: function (req, res){
     let comment = {
         text: req.body.text,
         users_id: req.body.users_id,
         products_id: req.body.products_id
+       
     }
-  
-
-    products.findOne({
-        where: [{id: comment.products_id}]
+    console.log(req.body);
+    comments.create(comment)
+    .then (function(respuesta){
+        return res.redirect ('/')
     })
-.then(function(result){
-    let producto = {
-        id: result.id,
-        image: result.image,
-        brand: result.brand,
-        users_id: result.users_id,
-    }
- products.update(producto, {
-    where: {id: comment.products_id}
-})
-.then(function(){
-    return res.redirect(`/product/${producto.id}`);
+}
 
-})
-})
+
 }
-}
-}
+
 module.exports = productController

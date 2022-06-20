@@ -65,12 +65,9 @@
 						
 							 <% }  %>
 						</section>
-						<form class="form" action="storeComment" method="POST">
-							<input class="form-input" name="text" type="text" placeholder="Agregar comentario">
-							<input type="hidden" name="rating" id="estrellas-rating-input">
-							
-							<input name="FkPhoneId" class = "border form-control" type="hidden" id="formGroupExampleInput" value="<%= id %>">
-							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+						<form class="form" action="/product/comment-store" method="POST">
+						<input class="form-input" name="comment" type="text" placeholder="Agregar comentario">
+							<button class="buy-now-button" type="submit"> AGREGAR COMENTARIO </button>
 						</form>
 
 
