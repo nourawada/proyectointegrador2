@@ -17,7 +17,7 @@ const productController = {
          .then(function(products){
             comment.findAll({
                 include: [{association: "userComment"}, { association: "productComment"}],
-            where:[{ products_id: products.id}],
+            where:[{ productsId: products.id}],
             order: [[['id', 'DESC']]]
 
             })
@@ -52,7 +52,7 @@ store: function(req, res){
          image: req.file.filename,
          brand: req.body.brand,
          descripcion: req.body.descripcion,
-         users_id: req.body.users_id
+         usersId: req.body.usersId
      }  
 
      
@@ -69,27 +69,26 @@ store: function(req, res){
 
 delete: function(req, res){
     if (req.session.user == undefined) {
-        return res.redirect('/')
+        return res.redirect('/users/login')
      } else {
         products.findByPk(req.params.id)
         .then(function(product){
-        if(product.users_id == req.session.user.id){
+       
          products.destroy({ 
          where: {id : req.params.id }})
 
         .then (function(destroy){
 
         comment.destroy({
-         where: {products_id : req.params.id}
+         where: {productsId : req.params.id}
  })
         .then(function(borrar){
          return res.redirect ('/')
 })
         .catch(error => console.log(error))
 })
-        } else {
-        return res.redirect('/')
-}
+       
+
 })
 }
 },
@@ -101,8 +100,8 @@ delete: function(req, res){
     } else { 
     let comments = {
        text: req.body.text,
-       products_id: req.body.products_id,
-       users_id: req.body.users_id,        
+       productsId: req.body.productsId,
+       usersId: req.body.usersId,        
     }
 
 

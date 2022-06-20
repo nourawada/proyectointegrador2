@@ -8,12 +8,13 @@ module.exports = function(sequelize, dataTypes){
             autoIncrement: true
         },
         text:{
-            type: dataTypes.STRING
+            type: dataTypes.STRING,
+            notNull: true
         },
-        products_id:{
+        productsId:{
             type: dataTypes.INTEGER
         },
-        users_id:{
+        usersId:{
             type: dataTypes.INTEGER
         },
         createdAt:{
@@ -36,12 +37,12 @@ module.exports = function(sequelize, dataTypes){
     Comments.associate = function(models){
         Comments.belongsTo(models.Product, {
             as: 'productComment',
-            foreignKey: 'products_id'
+            foreignKey: 'productsId'
         });
 
         Comments.belongsTo(models.User, {
             as: 'userComment',
-            foreignKey: 'users_id'
+            foreignKey: 'usersId'
         });
     }
     return Comments;

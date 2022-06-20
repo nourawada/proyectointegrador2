@@ -27,7 +27,7 @@ module.exports = function (Sequelize,DataTypes){ //el modelo exporta una funcion
             notnull: true,
             type: DataTypes.STRING,
         },
-        users_id:{
+        usersId:{
             notnull: true,
             type: DataTypes.INTEGER.UNSIGNED,
         },
@@ -55,13 +55,13 @@ module.exports = function (Sequelize,DataTypes){ //el modelo exporta una funcion
         Product.belongsTo(models.User,
         {
             as:'user',
-            foreignKey:'users_id'
+            foreignKey:'usersId'
         })
     
     
         Product.hasMany(models.Comment, {
             as: 'comment',
-            foreignKey: 'products_id'
+            foreignKey: 'productsId'
         });
     }
 

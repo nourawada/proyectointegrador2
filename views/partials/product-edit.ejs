@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+
+<%-include('./partials/head.ejs', {titulo:'Agregar producto - The Fantasy'})%>
+
+<body>
+	<!-- Header -->
+	<% if (locals.user) { %> 
+		<%- include('partials/headerLogueado') %>
+	<% } else { %>
+		<%- include('partials/header') %>
+	<% } %>  
+	<!-- /Header -->
+
+	<!-- Novedades -->
+
+	
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Agregar productos</h2>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<section class="form-register">
+				<form action="/product/editado/<%= products.id %>" method="post" name="form-register" enctype="multipart/form-data">
+					<input class="form-input1" type="text" name="name" value="<%=products.name%>">
+
+                    <input class="form-input1" type="file" name="image" value="<%=products.image%>">
+
+                    <input class="form-input1" type="text" name="brand" value="<%=products.brand%>">
+
+					<input class="form-input1" type="text" name="descripcion" value="<%=products.descripcion%>">
+
+					<button type="submit" class="btn mt-3 ml-4">SUBIR PRODUCTO</button>
+				</form>
+			</section>
+
+
+			<!-- footer -->
+			<%-include('./partials/footer.ejs')%>
+			<!-- /footer -->
+</body>
+
+</html>
