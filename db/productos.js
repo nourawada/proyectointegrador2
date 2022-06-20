@@ -4,7 +4,7 @@
         nombre:"PLACA DE VIDEO Geforce G210 1G Ddr3 Lp Single Slot MSI" ,
         imagen: "/images/products/1.jpeg",
         marca:"MSI",
-        descripcion: "Está dedicada al procesamiento de datos relacionados con el vídeo y las imágenes que se están reproduciendo en el ordenador.",
+        descripcion: 'Está dedicada al procesamiento de datos relacionados con el vídeo y las imágenes que se están reproduciendo en el ordenador.',
         fechaDeCarga: 2022,
         
     }, 

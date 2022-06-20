@@ -4,11 +4,7 @@
 <%- include('./partials/head')  %> 
 <body>
 	<!-- Header -->
-	<% if (locals.user) { %> 
-		<%- include('partials/headerLogueado') %>
-	<% } else { %>
-		<%- include('partials/header') %>
-	<% } %>  
+<%- include('./partials/header')  %> 
 	<!-- /Header -->
 	<!-- product detail -->
 	<div class="container products-wrapper">
@@ -38,37 +34,23 @@
 					</article>
 				<div class="col-12 col-lg-4">	
 					/<section class="comments">
-                        
+                        <% for (let i = 0;  i < comment.length; i++) { %>
                             <article>
-                                <img src="<%= products.user.image %> " alt="foto de perfil de <%= products.user.username %>">
+                                <img src="<%= comment.user.image %> " alt="">
                                 <div class="data">
                                     <p class="user">
-                                    <strong> <a href="/profile/<%= products.user.id %>"> <%= products.user.username %> </a> </strong>
+                                    <strong> <a href="/users/profile"> <%= comment.user.name%> </a> </strong>
+                                    <%= comment.text %> 
                                     </p>
                                 </div>
                             </article>
-							<% if(comment[0]!= undefined) {%>
-								<p id="titulo-comments"><strong>Comentarios:</strong></p>
-							<% for(let i =0; i< comment.length; i++) { %>
-								<article>
-									<a href="/profile/<%= comment[i].id %>">	<img src="/images/users/<%= comment[i].image %>  " alt=""> </a>
-									<div class="data">
-										<p class="user">
-										<strong> <a href="/profile/<%=products.comment[i].users_id%> "> <%= comment[i].username %>  </a> </strong>
-										<%= products.comment[i].text %>
-										</p>	
-									</article>
-										<% } %>	
-            			                <% } else { %> 
-											<p><strong>Se el primero en dejar un comentario!</strong></p>
-										
-						
-							 <% }  %>
+
+                            <% }  %> 
 						</section>
-						<form class="form" action="/product/comment-store" method="POST">
-						<input class="form-input" name="comment" type="text" placeholder="Agregar comentario">
-							<button class="buy-now-button" type="submit"> AGREGAR COMENTARIO </button>
-						</form>
+					<form class="form" action="" method="get">
+						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+						<a href="/comment-store" type="submit" class="buy-now-button">AGREGAR COMENTARIO</a>
+					</form>	
 
 
 

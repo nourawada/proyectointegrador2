@@ -2,25 +2,25 @@ const express = require('express');
 const router = express.Router();
 const productController = require('../controllers/productsController')
 
-const multer = require('multer');
-const path = require('path');
+let multer = require('multer');
+let path = require('path');
 
 /*Configurar Multer */
-const storage = multer.diskStorage({
-    destination: function ( req, file, cb) {
-        cb(null, path.join(__dirname, '../public/images/users')) //Usamos path.join para evitar problemas de rutas. __dirname da la posicion exacta de la carpeta en la que esta el archivo. Luego desde ahi nosmovemos hasta la carpeta public.
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, path.join(__dirname, '../public/images/products')) //Usamos path.join para evitar problemas de rutas. __dirname da la posición exacta de la carpeta en la que está el archivo. Luego desde ahí nos movemos hasta la carpeta public.
+      //Las carpetas deben existir.
     },
-
     filename: function (req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
     }
-})
+  })
 
 var upload = multer({storage: storage})
 
 /* GET home page. */
-router.get('/product-add', productController.productadd)
-router.post('/product-store', upload.single('image'), productController.productStore) //Ruta que guarda datos
+router.get('/product-add', productController.add)
+router.post('/product-store', upload.single('image'), productController.store) //Ruta que guarda datos
 router.post('/comment-store', productController.show)
 router.get('/:id', productController.productId)
 
