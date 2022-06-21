@@ -23,6 +23,8 @@ router.get('/product-add', productController.add)
 router.post('/delete/:id', productController.delete)
 router.post('/product-store', upload.single('image'), productController.store) //Ruta que guarda datos
 router.post('/commentstore/:id', productController.show)
+router.get('/edit/:id', productController.edit)
+router.post('/editado/:id', productController.editado)
 router.get('/:id', productController.productId)
 
 module.exports = router

@@ -118,8 +118,54 @@ delete: function(req, res){
  
 }
 },
+edit: function(req, res){
+    if (req.session.user == undefined) {
+        return res.redirect('/users/login')
+    } else {
+        products.findByPk(req.params.id)
+        .then(function(producto){
+        if(producto.usersId == req.session.user.id){
+        products.findOne({
+    
+            where: [{id: req.params.id}]
+})
+                .then (function(products){
+                    return res.render('edit' , {products: products});
+})
+                .catch(error => console.log(error))
 
+                } else {
 
+                return res.redirect('/')
+}
+})
+        .catch(error => console.log(error))
+}
+},
+
+editado: function(req, res){
+    
+         let product = {
+            name: req.body.name,
+            image: req.file.filename,
+            brand: req.body.brand,
+            descripcion: req.body.descripcion,
+            usersId: req.session.usersId,
+            }
+        products.update(product, {
+                where: [{
+                    id: req.params.id
+                }]
+            })
+            .then(function (respuesta) {
+                products.findByPk(req.params.id)
+                    .then(function (products) {
+                        return res.redirect(`/product/${products.id}`)
+                    })
+                    .catch(error => console.log(error))
+            })
+            .catch(error => console.log(error))
+    },
 
 }
 module.exports = productController

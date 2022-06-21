@@ -19,12 +19,10 @@
 			<p class="product-detail-description">
 				<a href="product-add">Crear producto</a>
 			</p>
-			
-				
 					<form action="/product/delete/<%= products.id %> " method="post">
 						<button class="borrar" type="submit"> Borrar producto </button>
 						</form> 
-							
+						<a class="product-detail-description" href="/product/edit/<%= products.id %>" class="borrar"> Editar producto </a>			
 						
 		</div>
 
@@ -49,16 +47,17 @@
                                 <img src="/images/users/<%= comment[i].user.image %> " alt="">
                                 <div class="data">
                                     <p class="user">
-                                    <strong> <a href="/images/users/ <%=comment[i].user.id %> "> <%= comment[i].user.username%> </a> </strong>
-                                    <%= comment[i].text %> 
-                                    </p>
+                                    <strong> <a href="/users/profile/ <%=comment[i].user.id %> "> <%= comment[i].user.username%> </a> </strong>
+                                    <%= comment[i].text %>
+								</p>
+								
                                 </div>
                             </article>
 
                             <% }  %> 
 						</section>
 					<form class="form" action="/product/commentstore/<%= products.id %>" method="post">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+						<input class="form-input" name="text" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>	
 

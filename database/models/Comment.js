@@ -24,26 +24,30 @@ module.exports = function(sequelize, dataTypes){
         updatedAt:{
             type: dataTypes.DATE,
             notNull: true
+        },
+        deletedAt:{
+            type: dataTypes.DATE,
+            notNull: true
         }
     };
     //configuraciones adicionales. 
     let config = {
         tableName: "comments",
-        timestamp: true,
+        timestamps: true,
         underscored:false
     }
 
-    const Comments = sequelize.define (alias, cols, config);
-    Comments.associate = function(models){
-        Comments.belongsTo(models.Product, {
+    const Comment = sequelize.define (alias, cols, config);
+    Comment.associate = function(models){
+        Comment.belongsTo(models.Product, {
             as: 'product',
             foreignKey: 'productsId'
         });
 
-        Comments.belongsTo(models.User, {
+        Comment.belongsTo(models.User, {
             as: 'user',
             foreignKey: 'usersId'
         });
     }
-    return Comments;
+    return Comment;
 }
