@@ -144,7 +144,7 @@ edit: function(req, res){
 },
 
 editado: function(req, res){
-    
+    console.log(req.file);
          let product = {
             name: req.body.name,
             image: req.file.filename,
@@ -152,18 +152,17 @@ editado: function(req, res){
             descripcion: req.body.descripcion,
             usersId: req.session.usersId,
             }
+            
         products.update(product, {
                 where: [{
                     id: req.params.id
                 }]
             })
-            .then(function (respuesta) {
-                products.findByPk(req.params.id)
                     .then(function (products) {
-                        return res.redirect(`/product/${products.id}`)
+                        return res.redirect('/')
                     })
                     .catch(error => console.log(error))
-            })
+            
             .catch(error => console.log(error))
     },
 

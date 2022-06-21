@@ -20,11 +20,18 @@ var upload = multer({storage: storage})
 
 /* GET home page. */
 router.get('/product-add', productController.add)
+
+router.post('/product-store', upload.single('image'), productController.store)
+
 router.post('/delete/:id', productController.delete)
-router.post('/product-store', upload.single('image'), productController.store) //Ruta que guarda datos
+
+ //Ruta que guarda datos
 router.post('/commentstore/:id', productController.show)
+
+router.post('/editado/:id',upload.single('image'), productController.editado)
+
 router.get('/edit/:id', productController.edit)
-router.post('/editado/:id', productController.editado)
+
 router.get('/:id', productController.productId)
 
 module.exports = router

@@ -18,6 +18,8 @@
 			</h2> 
 			<p class="product-detail-description">
 				<a href="product-add">Crear producto</a>
+				<a href="/users/profile/<%= products.user.id %> ">Subido por
+					<%= products.user.username %>
 			</p>
 					<form action="/product/delete/<%= products.id %> " method="post">
 						<button class="borrar" type="submit"> Borrar producto </button>
