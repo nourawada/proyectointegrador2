@@ -5,10 +5,19 @@ const op = db.Sequelize.Op;
 const comment = db.Comment;
 const bcrypt = require('bcryptjs');
 
-
-
-
 const usersController = {
+    profile: function (req, res) {
+        users.findOne({
+            where:[{id : req.params.id}],
+        })
+        .then(function(user){
+            products.findAll({
+                where: [{usersId : req.params.id}],
+            })
+            
+        })
+        res.render('profile', {users: user, productos: products} );
+    },
     register: function(req, res){
             return res.render('register');
     },
@@ -109,10 +118,6 @@ const usersController = {
 
     },
 
-
-    profile: function (req, res) {
-        res.render('profile', {usuario: usuario, productos: productos} );
-    },
     profileEdit: function (req, res) {
         res.render('profile-edit', {usuario: usuario} );
     }

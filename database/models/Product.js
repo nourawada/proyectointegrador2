@@ -29,7 +29,7 @@ module.exports = function (Sequelize,DataTypes){ //el modelo exporta una funcion
         },
         usersId:{
             notnull: true,
-            type: DataTypes.INTEGER.UNSIGNED,
+            type: DataTypes.INTEGER,
         },
         createdAt:{
             notNull: true,

@@ -28,8 +28,8 @@ router.post('/login', usersController.signIn )
 
 router.post('/logout', usersController.logout)
 
-//router.get('/profile', usersController.profile);
+router.get('/profile/:id', usersController.profile);
 
-//router.get('/profile-edit', usersController.profileEdit);
+router.get('/profile-edit', usersController.profileEdit);
 
 module.exports = router;
