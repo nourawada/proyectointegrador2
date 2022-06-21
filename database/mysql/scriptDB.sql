@@ -71,7 +71,8 @@ VALUES ('Placa de video', '1.jpeg' , 'MSI', 'Está dedicada al procesamiento de 
 ('Mother Asrock B365 Phantom Gaming 4 9th Gen 1151 M.2 RGB ','11.jpg','Asrock','La placa mother es una tarjeta de circuito impreso a la que se conectan los componentes que constituyen la computadora',curdate(), curdate(),curdate(),1),
 ('Cooler CPU ID-Cooling FROSTFLOW X 240 CPU Intel 1151 & AMD AM4','12.jpg','ID-Cooling','Un cooler, es un ventilador capaz de enfriar y mantener la temperatura, ni más ni menos. Estos cooler tienden a utilizar para todo tipo de aspectos de la vida, y no sólo están presentes en el mundo de la informatica', curdate(), curdate(),curdate(),1);
 
-
+INSERT INTO comments (comentario, productsId, usersId, createdAt, updatedAt, deletedAt)
+VALUES ('muy buena', 1, 3, curdate(), curdate(), curdate());
 
 
 
