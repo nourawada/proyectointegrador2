@@ -16,7 +16,7 @@ const productController = {
          })
          .then(function(products){
             comment.findAll({
-                include: [{association: "userComment"}, { association: "productComment"}],
+                include: [{association: "user"}, { association: "product"}],
             where:[{ productsId: products.id}],
             order: [[['id', 'DESC']]]
 
@@ -100,8 +100,8 @@ delete: function(req, res){
     } else { 
     let comments = {
        text: req.body.text,
-       productsId: req.body.productsId,
-       usersId: req.body.usersId,        
+       productsId: req.params.id,
+       usersId: req.session.user.id,        
     }
 
 
@@ -109,9 +109,9 @@ delete: function(req, res){
     comment.create(comments)
     .then (function(respuesta){
         products.findByPk(req.params.id)
-        .then(function(product){
+        .then(function(products){
         
-        return res.redirect (`/product/${product.id}`)
+        return res.redirect (`/product/${products.id}`)
     })
  .catch(error => console.log(error))
 })
