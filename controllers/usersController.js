@@ -4,20 +4,26 @@ const users = db.User;
 const op = db.Sequelize.Op;
 const comment = db.Comment;
 const bcrypt = require('bcryptjs');
+const res = require('express/lib/response');
+const req = require('express/lib/request');
 
 const usersController = {
-    profile: function (req, res) {
-        users.findOne({
-            where:[{id : req.params.id}],
-        })
-        .then(function(user){
-            products.findAll({
-                where: [{usersId : req.params.id}],
-            })
-            
-        })
-        res.render('profile', {users: user, productos: products} );
+    
+profile: function(req,res){
+    let usersId = req.params.id;
+    users.findByPk(usersId, {
+        include: { 
+            all: true,
+            nested: true
+        }})
+        .then((result) =>{
+            return res.render('profile',{
+                users:result,
+                id: usersId
+            });
+        });
     },
+
     register: function(req, res){
             return res.render('register');
     },

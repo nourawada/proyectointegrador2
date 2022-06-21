@@ -55,13 +55,13 @@ module.exports = function (Sequelize,DataTypes){ //el modelo exporta una funcion
         Product.belongsTo(models.User,
         {
             as:'user',
-            foreignKey:'usersId'
+            foreignKey:'UsersId'
         })
     
     
         Product.hasMany(models.Comment, {
             as: 'comment',
-            foreignKey: 'productsId'
+            foreignKey: 'ProductsId'
         });
     }
 
