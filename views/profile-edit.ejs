@@ -17,23 +17,19 @@
 			<div class="col-12">
 				<h2 class="products-title">Editar mi perfil</h2>
 			</div>
-			<form action="/" method="GET" class="form-edit">
+			<form action="/users/profileedit/<%= user.id %> " method="POST" class="form-edit">
 
-				<input type="text" name="usuarioNombre" placeholder="Nombre" class="form-input">
+				<input type="email" name="email" placeholder="email" class="form-input">
 
-				<input type="text" name="usuarioApellido" placeholder="Apellido" class="form-input">
+				<input type="username" name="username" placeholder="username" class="form-input">
 
-				<input type="text" name="usuarioUsername" placeholder="Nombre de Usuario" class="form-input">
+				<input type="password" name="password" placeholder="password" class="form-input">
 
-				<input type="text" name="usuarioEmail" placeholder="E-Mail" class="form-input">
+				<input type="nacimiento" name="nacimiento" placeholder="nacimiento" class="form-input">
 
-				<input type="password" name="usuarioContrasena" placeholder="Contraseña" class="form-input">
+				<input type="dni" name="dni" placeholder="dni" class="form-input">
 
-				<input type="date" name="usuarioNacimiento" class="form-input">
-
-				<input type="text" name="usuarioDocumento" placeholder="DNI" class="form-input">
-
-				<input type="file" name="usuarioImagen" placeholder="Foto de perfil" class="form-input">
+				<input type="file" name="image" class="form-input">
 
 				<button type="submit">Cambiar tus datos</button>
 			</form>

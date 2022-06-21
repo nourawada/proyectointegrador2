@@ -125,9 +125,34 @@ profile: function(req,res){
     },
 
     profileEdit: function (req, res) {
-        res.render('profile-edit', {usuario: usuario} );
+       return res.render('profile-edit' );
+    },
+    edit: function(req, res){
+        users.update({
+            email: req.body.email,
+            username: req.body.username,
+            password: bcrypt.hashSync(req.body.password),
+            nacimiento: req.body.nacimiento,
+            dni: req.body.dni,
+            image: req.body.file
+            
+            
+            
+          },{
+            where: {
+                id: req.params.id
+            }
+
+          })
+          .then(function(result){
+            return res.redirect("/users/login");
+          })
+          .catch((error) => {
+            return res.send(error)
+          });
+         
+    },
     }
-};
 
 
 module.exports = usersController;
