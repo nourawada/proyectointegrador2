@@ -15,9 +15,9 @@
 	<!-- Novedades -->
 	<div class="container products-wrapper">
 		<div class="row">
-			<% if (locals.errores) {%> 
-				<%= errores.message  %>  <!-- agregarle una clase para css -->
-			<% } %> 
+			<% if(locals.errores){%>
+				<p style="color:red"> <%= errores.message %> </p>
+			<% } %>
 			<div class="col-12">
 				<h2 class="products-title">Ingresar</h2>
 			</div>

@@ -42,6 +42,10 @@ profile: function(req,res){
             errores.message = "El archivo es obligatorio";
             res.locals.errores = errores;
             return res.render('register');
+          }else if(req.body.nacimiento.includes("/") ){
+            errores.message = "La fecha tiene que tener guion en vez de barra";
+            res.locals.errores = errores;
+            return res.render('register');
           }else{
              users.findOne({
                  where:[{ email: req.body.email}]
@@ -128,6 +132,27 @@ profile: function(req,res){
        return res.render('profile-edit' );
     },
     edit: function(req, res){
+        let errores = {}
+
+        if(req.body.username == ""){
+            errores.message = "El nombre es obligatorio";
+            res.locals.errores = errores;
+            return res.render('profile-edit');
+          } else if(req.body.email == ""){
+            errores.message = "El email es obligatorio";
+            res.locals.errores = errores;
+            return res.render('profile-edit');
+          } else if(req.file == undefined){
+            errores.message = "El archivo es obligatorio";
+            res.locals.errores = errores;
+            return res.render('profile-edit');
+          }else if(req.body.nacimiento.includes("/") ){
+            errores.message = "La fecha tiene que tener guion en vez de barra";
+            res.locals.errores = errores;
+            return res.render('profile-edit');
+          }else{
+          
+
         users.update({
             email: req.body.email,
             username: req.body.username,
@@ -136,7 +161,7 @@ profile: function(req,res){
             dni: req.body.dni,
             image: req.body.file
             
-            
+    
             
           },{
             where: {
@@ -151,7 +176,7 @@ profile: function(req,res){
             return res.send(error)
           });
          
-    },
+    }},
     }
 
 

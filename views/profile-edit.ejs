@@ -17,7 +17,7 @@
 			<div class="col-12">
 				<h2 class="products-title">Editar mi perfil</h2>
 			</div>
-			<form action="/users/profileedit/<%= user.id %> " method="POST" class="form-edit">
+			<form action="/users/profileedit/<%= user.id %> " enctype="multipart/form-data" method="POST" class="form-edit">
 
 				<input type="email" name="email" placeholder="email" class="form-input">
 
